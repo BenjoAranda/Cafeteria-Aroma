@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedido - Cafeteria Aroma</title>
+  </head>
+  <body>
+    <header>
+      <h1>Cafetería Aroma</h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="pedido.html">Pedido</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Formulario de Pedido</h2>
+        <p>
+          Completa tus datos y elige tu pedido. Los campos con * son
+          obligatorios
+        </p>
+        <!-- Agrupacion de datos relacionados y un titulo -->
+        <fieldset>
+          <legend>Datos del cliente</legend>
+          <!-- Texto se una sola linea -->
+          <p>Nombre Completo*</p>
+          <form action="procesar.php" method="post">
+            <input type="text" name="nombre" placeholder="Ej: Ana Pérez" />
+          </form>
+          <!-- Correo electrónico -->
+          <p>Correo electrónico*</p>
+          <form action="procesar.php" method="post">
+            <input type="email" name="correo" placeholder="ana@correo.com" />
+          </form>
+          <!-- Números de telefono -->
+          <p>Teléfono</p>
+          <form action="procesar.php" method="post" pattern="[0-9]{8,}">
+            <input type="text" name="number" placeholder="Ej: 71234567" />
+          </form>
+          <!-- Dia, Mes y Año -->
+          <p>Fecha de recogida</p>
+          <form action="procesar.php" method="dialog">
+            <input type="date" />
+          </form>
+          <!-- Hora esacta -->
+          <p>Hora de recogida</p>
+          <form action="procesar.php" method="dialog">
+            <input type="time" />
+          </form>
+        </fieldset>
+        <fieldset>
+          <legend>Detalle del pedido</legend>
+          <p>Bebida*</p>
+          <!-- Lista Desplegable -->
+          <select name="bebida" required>
+            <option value="seleccione">Seleccione una bebida</option>
+            <option value="café">Café Americano</option>
+            <option value="capuccino">Capuccino Especial</option>
+            <option value="latte">Latte con Vainilla</option>
+            <option value="frappé">Frappé de Café</option>
+            <option value="limonada">Limonada con Menta</option>
+          </select>
+          <!-- Casilla de seleccion unica -->
+          <p>Tamaño*</p>
+          <input type="radio" id="pequeño" name="tamaño" value="pequeño" />
+          <label for="pequeño">Pequeño</label>
+          <input type="radio" id="mediano" name="tamaño" value="mediano" />
+          <label for="mediano">Mediano</label>
+          <input type="radio" id="grande" name="tamaño" value="grande" />
+          <label for="grande">Grande</label>
+          <p>Postres</p>
+          <select name="postres" required>
+            <option value="seleccione">Seleccione un postre</option>
+            <option value="brownie">Brownie Casero</option>
+            <option value="croissant">Croissant de mantequilla</option>
+            <option value="cheesecake">Cheesecake</option>
+          </select>
+          <!-- Numero con min y max -->
+          <p>Cantidad*</p>
+          <input type="number" min="1" max="50" />
+          <!-- Casilla de seleccion multiple -->
+          <p>Extras</p>
+          <input type="checkbox" />Leche vegetal <input type="checkbox" />Extra
+          shot <input type="checkbox" />Sin azúcar
+          <!-- Casilla para escribir texto largo -->
+          <p>Indicaciones / Comentarios</p>
+          <textarea
+            name="comentario"
+            rows="5"
+            cols="30"
+            placeholder="Ej: Sin canela, entregar en vaso térmico..."
+          ></textarea>
+        </fieldset>
+        <fieldset>
+          <legend>Entrega</legend>
+          <input type="radio" id="retiro" name="entrega" value="retiro" />
+          <label for="retiro">Retiro de tienda</label>
+          <input type="radio" name="entrega" id="entrega" value="entrega" />
+          <label for="entrega">Entrega a domicilio</label>
+          <p>Dirección (si es domicilio)</p>
+          <input
+            type="text"
+            name="calle"
+            placeholder="Calle, número, referencia"
+            required
+          />
+        </fieldset>
+        <input type="hidden" name="sucursal" value="central" />
+        <button type="submit">Enviar pedido</button>
+        <button type="reset">Limpiar</button>
+      </section>
+      <p>© 2025 Cafetería Aroma - Todos los derechos reservados</p>
+    </main>
+  </body>
+</html>
